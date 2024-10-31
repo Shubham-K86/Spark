@@ -79,7 +79,7 @@ object rdd_doc {
 //    Given an RDD containing words, find the most frequent 10 words
       val rdd_str = sc.parallelize(Seq("hello", "world", "hello", "world", "world", "hello", "hi"))
       val rdd_map = rdd_str.map(x => (x,1))
-      val rdd_red = rdd_map.reduceByKey((x,y) => (x+y))
+      val rdd_red = rdd_map.reduceByKey((x,y) => (x+y))S
       val rdd_sort = rdd_red.sortBy(x => x._2,false)
       val rdd_m = rdd_sort.map(x => x._1)
       rdd_m.take(10).foreach(println)
